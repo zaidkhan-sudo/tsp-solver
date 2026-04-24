@@ -90,7 +90,7 @@ function GraphCanvas({ n, dist, tour }) {
     // Draw optimal tour edges
     if (tour && tour.length > 1) {
       // Glow layer
-      ctx.strokeStyle = "rgba(99, 102, 241, 0.3)";
+      ctx.strokeStyle = "rgba(255, 255, 255, 0.35)";
       ctx.lineWidth = 6;
       ctx.lineCap = "round";
       ctx.beginPath();
@@ -104,9 +104,9 @@ function GraphCanvas({ n, dist, tour }) {
 
       // Main line
       const gradient = ctx.createLinearGradient(0, 0, W, H);
-      gradient.addColorStop(0, "#6366f1");
-      gradient.addColorStop(0.5, "#8b5cf6");
-      gradient.addColorStop(1, "#a78bfa");
+      gradient.addColorStop(0, "rgba(255, 255, 255, 0.95)");
+      gradient.addColorStop(0.5, "rgba(255, 255, 255, 0.9)");
+      gradient.addColorStop(1, "rgba(255, 255, 255, 0.85)");
       ctx.strokeStyle = gradient;
       ctx.lineWidth = 2.5;
       ctx.beginPath();
@@ -127,7 +127,7 @@ function GraphCanvas({ n, dist, tour }) {
         const midY = (from.y + to.y) / 2;
         const arrowSize = 8;
 
-        ctx.fillStyle = "#a78bfa";
+        ctx.fillStyle = "rgba(255, 255, 255, 0.9)";
         ctx.beginPath();
         ctx.moveTo(
           midX + arrowSize * Math.cos(angle),
@@ -185,8 +185,8 @@ function GraphCanvas({ n, dist, tour }) {
 
       // Glow
       const glow = ctx.createRadialGradient(x, y, 0, x, y, 25);
-      glow.addColorStop(0, "rgba(99, 102, 241, 0.25)");
-      glow.addColorStop(1, "rgba(99, 102, 241, 0)");
+      glow.addColorStop(0, "rgba(255, 255, 255, 0.2)");
+      glow.addColorStop(1, "rgba(255, 255, 255, 0)");
       ctx.fillStyle = glow;
       ctx.beginPath();
       ctx.arc(x, y, 25, 0, Math.PI * 2);
@@ -194,8 +194,8 @@ function GraphCanvas({ n, dist, tour }) {
 
       // Node circle
       const nodeGrad = ctx.createRadialGradient(x - 3, y - 3, 0, x, y, 18);
-      nodeGrad.addColorStop(0, "#818cf8");
-      nodeGrad.addColorStop(1, "#6366f1");
+      nodeGrad.addColorStop(0, "rgba(255, 255, 255, 0.95)");
+      nodeGrad.addColorStop(1, "rgba(255, 255, 255, 0.75)");
       ctx.fillStyle = nodeGrad;
       ctx.beginPath();
       ctx.arc(x, y, 18, 0, Math.PI * 2);
@@ -207,7 +207,7 @@ function GraphCanvas({ n, dist, tour }) {
       ctx.stroke();
 
       // Label
-      ctx.fillStyle = "white";
+      ctx.fillStyle = "black";
       ctx.font = 'bold 13px "JetBrains Mono", monospace';
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
